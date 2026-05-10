@@ -10,7 +10,6 @@ import {
   DatabaseZap,
   Network,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -36,28 +35,24 @@ const services = [
     description:
       "We engineer data layers that unmask anonymous web traffic and pipe verified leads directly into custom outbound orchestration flows.",
     icon: DatabaseZap,
-    className: "lg:col-span-2",
   },
   {
     title: "Enterprise Infrastructure",
     description:
       "Preparing mid-market tech for enterprise procurement. We architect SAML/SSO integrations and manage migrations to highly-available cloud infrastructure.",
     icon: CloudCog,
-    className: "lg:col-span-2",
   },
   {
     title: "AI-Native CX Architecture",
     description:
       "We deploy enterprise-grade AI agents and conversational commerce flows that autonomously resolve tier-1 support tickets and capture revenue 24/7.",
     icon: Bot,
-    className: "lg:col-span-2",
   },
   {
     title: "CRM & Ecosystem Orchestration",
     description:
       "Breaking down data silos. We build custom API middleware to migrate fragmented legacy data into unified platforms like HubSpot and ActiveCampaign.",
     icon: Network,
-    className: "lg:col-span-2",
   },
 ];
 
@@ -212,7 +207,6 @@ function ServicesGrid() {
       <motion.div {...fadeUp} className="mx-auto max-w-7xl">
         <div className="mb-10 max-w-2xl">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-            <Sparkles className="size-3.5 text-blue-600" />
             Services
           </div>
           <h2 className="text-3xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl">
@@ -220,7 +214,7 @@ function ServicesGrid() {
           </h2>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2">
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
@@ -234,28 +228,28 @@ function ServiceCard({
   title,
   description,
   icon: Icon,
-  className,
 }: {
   title: string;
   description: string;
   icon: LucideIcon;
-  className: string;
 }) {
   return (
     <article
-      className={`group relative min-h-[280px] overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-950/10 ${className}`}
+      className={`group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-950/10`}
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 transition group-hover:opacity-100" />
-      <div className="mb-12 flex items-center justify-between">
-        <div className="flex size-12 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg shadow-slate-950/10">
-          <Icon className="size-5" />
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-white shadow-md shadow-slate-950/10">
+            <Icon className="size-5" />
+          </div>
+          <h3 className="text-lg font-semibold tracking-[-0.02em] text-slate-950 sm:text-xl">
+            {title}
+          </h3>
         </div>
-        <CloudCog className="size-10 text-slate-100 transition group-hover:text-blue-100" />
+        <CloudCog className="size-8 shrink-0 text-slate-100 transition group-hover:text-blue-100" />
       </div>
-      <h3 className="text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-        {title}
-      </h3>
-      <p className="mt-4 text-base leading-7 text-slate-600">{description}</p>
+      <p className="text-sm leading-relaxed text-slate-600 sm:text-base sm:leading-7">{description}</p>
     </article>
   );
 }
