@@ -32,25 +32,32 @@ const platforms = [
 
 const services = [
   {
-    title: "SaaS Migration & Onboarding",
+    title: "Identity Resolution & RevOps",
     description:
-      "Seamlessly migrating legacy CRM data to modern platforms with zero downtime.",
+      "We engineer data layers that unmask anonymous web traffic and pipe verified leads directly into custom outbound orchestration flows.",
     icon: DatabaseZap,
-    className: "lg:col-span-1",
+    className: "lg:col-span-2",
   },
   {
-    title: "Agentic Orchestration",
+    title: "Enterprise Infrastructure",
     description:
-      "Custom backend orchestration using LangGraph to automate high-friction operational workflows.",
+      "Preparing mid-market tech for enterprise procurement. We architect SAML/SSO integrations and manage migrations to highly-available cloud infrastructure.",
+    icon: CloudCog,
+    className: "lg:col-span-2",
+  },
+  {
+    title: "AI-Native CX Architecture",
+    description:
+      "We deploy enterprise-grade AI agents and conversational commerce flows that autonomously resolve tier-1 support tickets and capture revenue 24/7.",
     icon: Bot,
-    className: "lg:col-span-1",
+    className: "lg:col-span-2",
   },
   {
-    title: "Custom API Middleware",
+    title: "CRM & Ecosystem Orchestration",
     description:
-      "Building verified ground-truth pipelines to connect fractured data sources into unified dashboards.",
+      "Breaking down data silos. We build custom API middleware to migrate fragmented legacy data into unified platforms like HubSpot and ActiveCampaign.",
     icon: Network,
-    className: "lg:col-span-1",
+    className: "lg:col-span-2",
   },
 ];
 
@@ -213,7 +220,7 @@ function ServicesGrid() {
           </h2>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
